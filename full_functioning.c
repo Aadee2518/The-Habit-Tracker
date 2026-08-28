@@ -6,6 +6,6 @@
 int main(){
     info_page();
     user_credentials_page();
-    habit_setter();
+    goal_setup();
     return 0;
 }

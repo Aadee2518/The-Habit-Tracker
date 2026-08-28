@@ -30,6 +30,8 @@ int user_credentials_page(){
     fprintf(ptr, "USER NAME: %s\n", user1.username);
     fprintf(ptr, "PHONE NUMBER: %s\n", user1.phone_number);
     fprintf(ptr, "EMAIL ADDRESS: %s\n", user1.email);
+    fprintf(ptr, "\n");
+    fprintf(ptr, "\n");
 
     fclose(ptr);
     return 0;

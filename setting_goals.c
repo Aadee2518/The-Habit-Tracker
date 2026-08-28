@@ -1,6 +1,7 @@
 //In this we will set goals for the user and then add furhter data to it 
 
 #include <stdio.h>
+#include <string.h>
 
 typedef struct number_of_user_habits {
     char habits[50];
@@ -14,13 +15,14 @@ void fetch_username() {
     fclose(ptr);
 }
 
-int main() {
+int goal_setup() {
     fetch_username();
     printf("Hello %s!\n", username);
 
     int number_of_habits;
     printf("Please enter the number of habits you want to build in this period of 21 days: ");
     scanf("%d", &number_of_habits);
+    while (getchar() != '\n'); // clear leftover newline from scanf buffer
 
     habits habit[number_of_habits];
 
@@ -28,7 +30,8 @@ int main() {
 
     for (int i = 0; i < number_of_habits; i++) {
         printf("Habit number %d: ", i);
-        scanf("%s", habit[i].habits);
+        fgets(habit[i].habits, sizeof(habit[i].habits), stdin);
+        habit[i].habits[strcspn(habit[i].habits, "\n")] = '\0'; // remove trailing newline
         fprintf(ptr1, "Habit %d: %s.\n", i, habit[i].habits);
     }
 
