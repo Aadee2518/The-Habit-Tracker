@@ -3,6 +3,7 @@
 #include "user_credentials.c"
 #include "setting_goals.c"
 #include "setup_complete_verification.c"
+#include "data_storing.c"
 
 char username[50];
 void fetching_username_again(){
@@ -14,8 +15,7 @@ void fetching_username_again(){
 int main(){
    if(setup_complete_verification()){
     fetching_username_again();
-    printf("Welcome back %s!\n", username);
-    printf("Let's move forward!\n");
+    storing_data();
    }
    else{
     info_page();

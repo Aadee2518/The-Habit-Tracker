@@ -4,7 +4,7 @@
 #include <string.h>
 #include "mood_rater.c"
 
-int main()
+int storing_data()
 {
     // First we will again fetch the username of the user that is stored in the file and then go ahead.
     FILE *ptr = fopen("user_1.txt", "r");
@@ -12,6 +12,7 @@ int main()
     fscanf(ptr, "USER NAME: %s", username);
     fclose(ptr);
 
-    printf("Hello %s! How has been your day today?\n", username);
+    printf("Hello %s!\n", username);
     mood_rater();
+    return 0;
 }
